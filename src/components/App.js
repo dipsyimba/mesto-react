@@ -49,7 +49,7 @@ function App() {
   }
 
   return (
-    <>
+    <div className="page">
       <Header />
       <div className="container">
         <div className="page">
@@ -206,7 +206,7 @@ function App() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
