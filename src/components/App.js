@@ -33,8 +33,6 @@ function App() {
     setIsAddPlacePopupOpen(false);
     setIsEditAvatarPopupOpen(false);
     setSelectedCard({
-      name: '',
-      link: '',
       isOpen: false,
     });
   }
@@ -66,6 +64,7 @@ function App() {
             name="avatar"
             isOpen={isEditAvatarPopupOpen}
             onClose={closeAllPopups}
+            buttonText="Сохранить"
             children={
               <>
                 <label className="popup__field">
@@ -82,14 +81,6 @@ function App() {
                     id="link-avatar-error"
                   />
                 </label>
-                <button
-                  type="submit"
-                  className="popup__button popup__btn-save"
-                  name="submit"
-                  value="Сохранить"
-                >
-                  Сохранить
-                </button>
               </>
             }
           />
@@ -100,6 +91,7 @@ function App() {
             name="profile"
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
+            buttonText="Сохранить"
             children={
               <>
                 <label className="popup__field">
@@ -131,14 +123,6 @@ function App() {
                     id="occupation-input-error"
                   />
                 </label>
-                <button
-                  type="submit"
-                  className="popup__button popup__btn-save"
-                  name="submit"
-                  value="Сохранить"
-                >
-                  Сохранить
-                </button>
               </>
             }
           />
@@ -149,6 +133,7 @@ function App() {
             name="add"
             isOpen={isAddPlacePopupOpen}
             onClose={closeAllPopups}
+            buttonText="Создать"
             children={
               <>
                 <label className="popup__field">
@@ -178,14 +163,6 @@ function App() {
                     id="link-input-error"
                   />
                 </label>
-                <button
-                  type="submit"
-                  className="popup__button popup__btn-create"
-                  name="create"
-                  value="Создать"
-                >
-                  Создать
-                </button>
               </>
             }
           />

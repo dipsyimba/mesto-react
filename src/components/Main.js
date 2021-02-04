@@ -24,18 +24,12 @@ function Main(props) {
     api
       .getInitialCards()
       .then((items) => {
-        const cards = [];
-        items.forEach((card) => {
-          cards.push(
-            <Card item={card} key={card._id} onCardClick={props.onCardClick} />
-          );
-        });
-        setCards(cards);
+        setCards(items);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [props]);
+  }, []);
 
   return (
     <main className="content">
@@ -69,7 +63,11 @@ function Main(props) {
         />
       </section>
       <section className="elements">
-        <ul className="grid-items">{cards}</ul>
+        <ul className="grid-items">
+          {cards.map((item) => (
+            <Card key={item._id} item={item} onCardClick={props.onCardClick} />
+          ))}
+        </ul>
       </section>
     </main>
   );
