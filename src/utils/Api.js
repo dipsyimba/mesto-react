@@ -39,8 +39,8 @@ class Api {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        name: name.value,
-        link: link.value,
+        name: name,
+        link: link,
       }),
     }).then((res) => this._getResponse(res));
   }
@@ -55,8 +55,8 @@ class Api {
     }).then((res) => this._getResponse(res));
   }
 
-  removeCard(element) {
-    return fetch(`${this._baseUrl}cards/${element}`, {
+  removeCard(cardId) {
+    return fetch(`${this._baseUrl}cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
     }).then((res) => this._getResponse(res));
@@ -72,6 +72,13 @@ class Api {
   deleteLike(cardId) {
     return fetch(`${this._baseUrl}cards/likes/${cardId}`, {
       method: 'DELETE',
+      headers: this._headers,
+    }).then((response) => this._getResponse(response));
+  }
+
+  changeLikeCardStatus(cardId, isLiked) {
+    return fetch(`${this._baseUrl}cards/likes/${cardId}`, {
+      method: `${isLiked ? 'PUT' : 'DELETE'}`,
       headers: this._headers,
     }).then((response) => this._getResponse(response));
   }
