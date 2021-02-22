@@ -6,10 +6,11 @@
 @import url(./__count/grid-item__count.css);
 @import url(./__like/_active/grid-item__like_active.css);
 @import url(./__trash/grid-item__trash.css);
+@import url(./__trash/_hidden/grid-item__trash_hidden.css);
 
 .grid-item {
-    list-style: none;
-    background-color: white;
-    border-radius: 10px;
-    position: relative;
+  list-style: none;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
 }
