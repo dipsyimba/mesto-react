@@ -9,8 +9,7 @@ import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import ImagePopup from './ImagePopup.js';
 import React, { useEffect } from 'react';
-import Api from '../utils/api';
-import { api } from '../utils/api';
+import api from '../utils/api';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 function App() {
