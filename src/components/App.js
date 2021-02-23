@@ -25,12 +25,14 @@ function App() {
   });
 
   useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getInitialCards()]).then(
-      ([user, initialCards]) => {
+    Promise.all([api.getUserInfo(), api.getInitialCards()])
+      .then(([user, initialCards]) => {
         setCurrentUser(user);
         setCards(initialCards);
-      }
-    );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   function handleCardLike(card) {
@@ -95,24 +97,39 @@ function App() {
   }
 
   function handleUpdateUser(data) {
-    api.setUserInfo(data.name, data.about).then((updatedData) => {
-      setCurrentUser(updatedData);
-      closeAllPopups();
-    });
+    api
+      .setUserInfo(data.name, data.about)
+      .then((updatedData) => {
+        setCurrentUser(updatedData);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleUpdateAvatar(data) {
-    api.setAvatar(data.avatar).then((updatedAvatar) => {
-      setCurrentUser(updatedAvatar);
-      closeAllPopups();
-    });
+    api
+      .setAvatar(data.avatar)
+      .then((updatedAvatar) => {
+        setCurrentUser(updatedAvatar);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   function handleAddPlaceSubmit(data) {
-    api.setNewCard(data.name, data.link).then((newCard) => {
-      setCards([newCard, ...cards]);
-    });
-    closeAllPopups();
+    api
+      .setNewCard(data.name, data.link)
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return (
