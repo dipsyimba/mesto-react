@@ -37,7 +37,7 @@ function Card(props) {
     <li className="grid-item">
       <img
         src={card.link}
-        alt="фото"
+        alt={card.name}
         className="grid-item__image"
         onClick={handleClick}
       />
